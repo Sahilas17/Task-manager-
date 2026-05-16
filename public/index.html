@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Team Task Manager</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main id="authView" class="auth-shell">
+      <section class="auth-panel">
+        <div>
+          <p class="eyebrow">Ethara AI Assessment</p>
+          <h1>Team Task Manager</h1>
+          <p class="lede">Create projects, manage teams, assign work, and track delivery from one dashboard.</p>
+        </div>
+
+        <div class="auth-card">
+          <div class="segmented" role="tablist" aria-label="Authentication mode">
+            <button id="loginTab" class="active" type="button">Login</button>
+            <button id="signupTab" type="button">Signup</button>
+          </div>
+
+          <form id="authForm" class="stack">
+            <label id="nameField">
+              <span>Name</span>
+              <input id="nameInput" autocomplete="name" minlength="2" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input id="emailInput" type="email" autocomplete="email" required />
+            </label>
+            <label>
+              <span>Password</span>
+              <input id="passwordInput" type="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <button id="authSubmit" class="primary" type="submit">Login</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <main id="appView" class="app-shell hidden">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <span class="mark">TM</span>
+          <div>
+            <strong>Task Manager</strong>
+            <small id="userRole">Member</small>
+          </div>
+        </div>
+        <nav>
+          <button class="nav-button active" data-view="dashboard" type="button">Dashboard</button>
+          <button class="nav-button" data-view="projects" type="button">Projects</button>
+          <button class="nav-button" data-view="team" type="button">Team</button>
+        </nav>
+        <button id="logoutButton" class="ghost" type="button">Logout</button>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Workspace</p>
+            <h2 id="pageTitle">Dashboard</h2>
+          </div>
+          <div id="currentUser" class="user-chip"></div>
+        </header>
+
+        <section id="dashboardView" class="view"></section>
+
+        <section id="projectsView" class="view hidden">
+          <div class="split-layout">
+            <aside class="project-list-panel">
+              <div class="panel-head">
+                <h3>Projects</h3>
+              </div>
+              <form id="projectForm" class="stack compact">
+                <label>
+                  <span>Project name</span>
+                  <input id="projectName" minlength="3" required />
+                </label>
+                <label>
+                  <span>Description</span>
+                  <textarea id="projectDescription" rows="3"></textarea>
+                </label>
+                <button class="primary" type="submit">Create Project</button>
+              </form>
+              <div id="projectsList" class="project-list"></div>
+            </aside>
+
+            <section id="projectDetail" class="project-detail empty-state">
+              Select or create a project.
+            </section>
+          </div>
+        </section>
+
+        <section id="teamView" class="view hidden"></section>
+      </section>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="/app.js"></script>
+  </body>
+</html>
