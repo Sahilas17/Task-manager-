@@ -1,74 +1,137 @@
-Team Task Manager - Full-Stack Assessment
+# Team Task Manager – Full-Stack Assessment
 
-Overview
-Team Task Manager is a full-stack project and task tracking app built for the Ethara AI internal assessment. Users can sign up, log in, create projects, add team members, assign tasks, update task status, and monitor progress from a dashboard.
+## Overview
 
-Tech Stack
-- Backend: Python 3 standard library HTTP server
-- Database: SQLite SQL database
-- Frontend: HTML, CSS, vanilla JavaScript
-- Auth: PBKDF2 password hashing and signed bearer tokens
-- Deployment target: Railway
+Team Task Manager is a full-stack project and task management application developed for the Ethara AI technical assessment. The platform enables teams to manage projects, assign tasks, track progress, and collaborate efficiently through a secure role-based access system.
 
-Features
-- Signup and login
-- First registered user automatically becomes a global Admin
-- Project creation and project-level team roles
-- Role-based access control:
-  - Global Admin can access all projects
-  - Project Admin can manage members and tasks in that project
-  - Member can view assigned projects and update their assigned task status
-- Task creation with assignee, status, priority, and due date
-- Dashboard with project count, task count, personal task count, completed tasks, status breakdown, recent tasks, and overdue tasks
-- REST API with validation and SQL relationships
+The application includes authentication, project management, task tracking, dashboard analytics, and RESTful APIs integrated with a relational database.
 
-Local Setup
-1. Install Python 3.12 or newer.
-2. Open a terminal in the project folder.
-3. Run:
-   python app.py
-4. Open:
-   http://127.0.0.1:8000
+---
 
-Railway Deployment
-1. Push this folder to a GitHub repository.
-2. Open Railway and create a new project from the GitHub repo.
-3. Railway will use the Procfile:
-   web: python app.py
-4. Add an environment variable in Railway:
-   SESSION_SECRET=use-a-long-random-secret
-5. Railway provides PORT automatically.
-6. After deployment, open the Railway generated domain.
+# Tech Stack
 
-Optional Railway Persistence Note
-The app uses SQLite at data/task_manager.sqlite3 by default. For longer-lived production data on Railway, attach a Railway Volume and set:
-DB_PATH=/data/task_manager.sqlite3
+### Backend
 
-Important Usage Notes
-- The first account you create is the global Admin account.
-- Create additional accounts from Signup, then add them to projects from the project team form.
-- Members can update only the status of tasks assigned to them.
+* Python 3
+* RESTful API architecture
 
-Submission
-Live Application URL:
-Add your Railway URL here after deployment.
+### Frontend
 
-GitHub Repository Link:
-Add your GitHub repository URL here after pushing the project.
+* HTML5
+* CSS3
+* Vanilla JavaScript
 
-API Summary
-- POST /api/auth/signup
-- POST /api/auth/login
-- GET /api/auth/me
-- GET /api/users
-- GET /api/dashboard
-- GET /api/projects
-- POST /api/projects
-- GET /api/projects/:id
-- PUT /api/projects/:id
-- DELETE /api/projects/:id
-- POST /api/projects/:id/members
-- DELETE /api/projects/:id/members/:userId
-- POST /api/projects/:id/tasks
-- PUT /api/tasks/:id
-- DELETE /api/tasks/:id
+### Database
+
+* SQLite
+
+### Authentication & Security
+
+* PBKDF2 password hashing
+* Signed bearer token authentication
+
+### Deployment
+
+* Railway
+
+---
+
+# Key Features
+
+* User Signup and Login
+* Secure token-based authentication
+* Role-based access control (Global Admin, Project Admin, Member)
+* Project creation and team management
+* Task creation, assignment, status updates, and priority tracking
+* Dashboard with task statistics, recent activity, and overdue tasks
+* REST APIs with proper validation and SQL relationships
+* Responsive and lightweight interface
+
+---
+
+# Role-Based Access Control
+
+* The first registered user automatically becomes the Global Admin.
+* Global Admins can manage all projects and users.
+* Project Admins can manage project members and tasks.
+* Members can view assigned projects and update the status of their own tasks.
+
+---
+
+# Dashboard Features
+
+The dashboard provides:
+
+* Total projects and tasks
+* Completed and pending task counts
+* Personal assigned tasks
+* Status-based analytics
+* Recent tasks and overdue task monitoring
+
+---
+
+# API Endpoints
+
+### Authentication
+
+* `POST /api/auth/signup`
+* `POST /api/auth/login`
+* `GET /api/auth/me`
+
+### Projects
+
+* `GET /api/projects`
+* `POST /api/projects`
+* `PUT /api/projects/:id`
+* `DELETE /api/projects/:id`
+
+### Tasks
+
+* `POST /api/projects/:id/tasks`
+* `PUT /api/tasks/:id`
+* `DELETE /api/tasks/:id`
+
+### Dashboard & Users
+
+* `GET /api/dashboard`
+* `GET /api/users`
+
+---
+
+# Local Development
+
+Run the application locally using Python 3.12 or later:
+
+```bash id="ov1qzt"
+python app.py
+```
+
+Application URL:
+
+```text id="pw8rvy"
+http://127.0.0.1:8000
+```
+
+---
+
+# Deployment
+
+The application is configured for deployment on Railway with environment variable support and optional persistent SQLite storage using Railway Volumes.
+
+---
+
+# Submission
+
+### Live Application URL
+
+Add Railway deployment URL here.
+
+### GitHub Repository
+
+Add GitHub repository URL here.
+
+---
+
+# Conclusion
+
+Team Task Manager demonstrates full-stack development concepts including secure authentication, role-based authorization, REST API development, relational database management, task workflow automation, and cloud deployment in a scalable and production-oriented architecture.
